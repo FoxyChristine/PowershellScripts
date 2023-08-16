@@ -1,8 +1,5 @@
 #ShowCurrentAV in WMI and Clear if Required - Written by Christine Jordan
 
-#Set Execution Policy to Unrestricted
-Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Confirm
-
 #Get the Current AV Product and Display
 $antiVirusProduct = (Get-WmiObject -Namespace root/securitycenter2 -query "Select * from AntiVirusProduct" | Format-List displayName | out-string)
 Write-Host "The Current Reported AV from WMI is: $antiVirusProduct"
@@ -19,6 +16,6 @@ if ($answer -eq "y") {
             {Restart-Computer
         }else{Write-Host "Please restart computer when next convenient"}
 }else{
-    Write-Host "The WMI Info has not been cleared"
+    (Write-Host "The WMI Info has not been cleared")
 }
 
