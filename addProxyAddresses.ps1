@@ -1,5 +1,5 @@
 #Get AD Usernames
-$users = Get-ADUser -Filter * -SearchBase "ou=Departments, dc=lovattsmedia,dc=com"
+$users = Get-ADUser -Filter * -SearchBase "ou=<ou>,dc=<domain>,dc=<.local>"
 $usernames = @()
 
 foreach ($user in $users) {
